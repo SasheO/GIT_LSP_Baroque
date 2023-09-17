@@ -16,7 +16,7 @@ public class ReadTextFile {
         = Path.of("words.txt");
 
 	    // Now calling Files.readString() method to read the file contents into a lowercase string
-	    str = Files.readString(fileName).toLowerCase();
+	    str = Files.readString(fileName);
 	}
 	
 	public static void main(String[] args){

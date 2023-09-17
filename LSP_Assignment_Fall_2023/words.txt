@@ -1,4 +1,4 @@
-Design and code a program that reads a text file, and counts the number of times each word that it contains appears 100 Sashe's design design sashE's
+Design and code a program that reads a text file, and counts the number of times each word that it contains appears 100 Sashe's design design sashE's a the of it
 Design and code a program that reads a text file, and counts the number of times each word that it contains appears 100 Sashe's design design sashE's
 
 Design and code a program that reads a text file, and counts the number of times each word that it contains appears 100 Sashe's design design sashE's

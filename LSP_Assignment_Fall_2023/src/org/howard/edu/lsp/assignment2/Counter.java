@@ -46,7 +46,24 @@ public class Counter {
 	}
 	
 	public HashMap<String, Integer> countTokens() {
-		return null;
+HashMap<String, Integer> counter = new HashMap<String, Integer>();
+		
+		// TODO: iterate through tokens, check if it has numbers, convert to .toLowerCase(), check length. add to counter hashset
+		for (String s: tokens) {
+			s = s.toLowerCase();
+			
+			
+				if (counter.containsKey(s)) {
+					counter.put(s, counter.get(s) + 1);
+				}
+				else {
+					counter.put(s, 1);
+				}
+			
+		}
+		
+		return counter;
+
 		
 	}
 

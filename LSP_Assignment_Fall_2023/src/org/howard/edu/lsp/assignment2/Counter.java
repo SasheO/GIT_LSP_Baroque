@@ -1,7 +1,6 @@
 package org.howard.edu.lsp.assignment2;
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.List;
 
 public class Counter {
@@ -45,7 +44,7 @@ public class Counter {
 		return counter;
 	}
 	
-	public HashMap<String, Integer> countTokens() {
+	public HashMap<String, Integer> countTokens(List<String> tokens) {
 HashMap<String, Integer> counter = new HashMap<String, Integer>();
 		
 		// TODO: iterate through tokens, check if it has numbers, convert to .toLowerCase(), check length. add to counter hashset

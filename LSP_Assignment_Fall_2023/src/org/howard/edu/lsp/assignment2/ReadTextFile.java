@@ -3,10 +3,8 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
-import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -16,7 +14,7 @@ public class ReadTextFile {
 	public ReadTextFile(String filepath)  throws IOException, URISyntaxException {
 		// constructor (named the same as class, returns nothing)
 		Path fileName
-        = Path.of("words.txt");
+        = Path.of(filepath);
 
 	    // Now calling Files.readString() method to read the file contents into a lowercase string
 	    str = Files.readString(fileName);

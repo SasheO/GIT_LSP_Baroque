@@ -5,34 +5,32 @@ import java.util.List;
 import java.util.Collections;
 
 public class IntegerSet {
-	// Hint: probably best to use an array list.  You will need to do a little research
+	
 	private List<Integer> set = new ArrayList<Integer>();
 
-	// Default Constructor
 	public IntegerSet() {
 	}
 
-	// Constructor if you want to pass in already initialized
 	public IntegerSet(ArrayList<Integer> set) {
-		this.set = set;
+		// ensures there are no duplicates in the passed in set
+		for (Integer i: set) {
+			if (!this.set.contains(i)) {
+				this.set.add(i);
+			}
+		}
 	}
 
-	// Clears the internal representation of the set
 	public void clear() {
 		this.set = new ArrayList<Integer>();
 	};
 
-	// Returns the length of the set
 	public int length() {
 		return this.set.size();
 	}; 
 
-	/*
-	 * Returns true if the 2 sets are equal, false otherwise;
-	 * Two sets are equal if they contain all of the same values in ANY order.
-	*/
+
 	public boolean equals(IntegerSet b) {
-		// check if everything in a is in b and the lengths are equal
+		// if lengths are equal and each element in this set is in b, then the IntegerSets are equal
 		if (this.length() == b.length()){
 			
 			for (Integer i: this.set) {
@@ -48,52 +46,85 @@ public class IntegerSet {
 			return false;
 		}
 		
-		return true;
-		
 	}; 
 
-	// Returns true if the set contains the value, otherwise false
 	public boolean contains(int value) {
 		return this.set.contains(value);
 	};    
 
-	// Returns the largest item in the set; Throws a IntegerSetException if the set is empty 
 	public int largest()  {
 		return  Collections.max(this.set);
 	}; 
 
-	// Returns the smallest item in the set; Throws a IntegerSetException if the set is empty
 	public int smallest() {
 		return  Collections.min(this.set);
 	};
 
-		// Adds an item to the set or does nothing it already there	
-	 	public void add(int item) {
-	 		// add item, does nothing if already there
-	 	}; // adds item to the set or does nothing if it is in set
+	 public void add(int item) {
+		 if (!this.set.contains(item)) {
+			 this.set.add(item);
+		 }
+	 	}; 
 
-		// Removes an item from the set or does nothing if not there
 	public void remove(int item) {
-		// remove item
+		if (this.set.contains(item)) {
+			this.set.remove(item);
+		}
 	}; 
-
-	// Set union
-	public void union(IntegerSet intSetb) {…};
-
-	// Set intersection, all elements in s1 and s2
-	public void intersect(IntegerSet intSetb) {…}; 
-
-	// Set difference, i.e., s1 –s2
-	public void diff(IntegerSet intSetb); // set difference, i.e. s1 - s2
-
-	// Set complement, all elements not in s1
-	public void complement(IntegerSet intSetb) {
+	
+	public ArrayList<Integer> getSet(){
+		return (ArrayList<Integer>) this.set;
 	}
 
-	// Returns true if the set is empty, false otherwise
-	boolean isEmpty(); 
+	public void union(IntegerSet intSetb) {
+		for (Integer i: intSetb.getSet()) {
+			if (!this.set.contains(i)) {
+				this.set.add(i);
+			}
+		}
+	};
 
-	// Return String representation of your set
-	public String toString() {…};	// return String representation of your set
+	public void intersect(IntegerSet intSetb) {
+		ArrayList<Integer> temp = new ArrayList<Integer>();
+		for (Integer i: this.set) {
+			if (intSetb.contains(i)) {
+				temp.add(i);
+			}
+		}
+		this.set = temp;
+	}; 
+
+	public void diff(IntegerSet intSetb) {
+		ArrayList<Integer> temp = new ArrayList<Integer>();
+		for (Integer i: this.set) {
+			if (!intSetb.contains(i)) {
+				temp.add(i);
+			}
+		}
+		this.set = temp;
+	}; 
+
+	public void complement(IntegerSet intSetb) {
+		ArrayList<Integer> temp = new ArrayList<Integer>();
+		for (Integer i: intSetb.getSet()) {
+			if (!this.set.contains(i)) {
+				temp.add(i);
+			}
+		}
+		this.set = temp;
+	}
+
+	public boolean isEmpty() {
+		if (this.length()==0) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}; 
+
+	public String toString() {
+		return this.set.toString();
+	};	
 
 }

@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
 
+/**
+ * @author Mezisashe Ojuba
+ */
 public class IntegerSet {
 	
 	private List<Integer> set = new ArrayList<Integer>();
@@ -20,6 +23,9 @@ public class IntegerSet {
 		}
 	}
 
+	/**
+	* Clears the internal representation of the set. 
+	*/
 	public void clear() {
 		this.set = new ArrayList<Integer>();
 	};

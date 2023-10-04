@@ -41,7 +41,7 @@ public class IntegerSet {
 
 	/**
 	 * Returns the length of the IntegerSet
-	 * @return int the length of the IntegerSet
+	 * @return the length of the IntegerSet
 	 */
 	public int length() {
 		return this.set.size();
@@ -51,7 +51,7 @@ public class IntegerSet {
 	/**
 	 * Checks if the set and another IntegerSet b passed in are equal (every element in this set is in b and every element in b is in this set)
 	 * @param b the set that this method checks for equality with
-	 * @return boolean whether this set and b are equal
+	 * @return whether this set and b are equal
 	 */
 	public boolean equals(IntegerSet b) {
 		// if lengths are equal and each element in this set is in b, then the IntegerSets are equal
@@ -75,7 +75,7 @@ public class IntegerSet {
 	/**
 	 * Checks if the set contains a particular integer
 	 * @param value the integer checked for
-	 * @return boolean whether value is in the set or not
+	 * @return whether value is in the set or not
 	 */
 	public boolean contains(int value) {
 		return this.set.contains(value);

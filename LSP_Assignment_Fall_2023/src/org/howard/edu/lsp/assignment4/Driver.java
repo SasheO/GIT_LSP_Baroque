@@ -2,6 +2,11 @@ package org.howard.edu.lsp.assignment4;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * Driver is a class to test IntegerSet
+ * @author Mezisashe Ojuba
+ * 
+ */
 public class Driver {
 
 	public static void main(String[] args) {

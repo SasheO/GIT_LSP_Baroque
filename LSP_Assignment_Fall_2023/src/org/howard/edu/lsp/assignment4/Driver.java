@@ -70,6 +70,30 @@ public class Driver {
 		System.out.println("set2.contains(10): "+set2.contains(10));
 		System.out.println("Current set3: "+set3.toString());
 		System.out.println("set3.contains(1): "+set3.contains(1));
+		
+		// test largest and smallest
+		System.out.println("\nG. Testing smallest and largest method:");
+		System.out.println("Current set2: "+set2.toString());
+		System.out.println("set2.smallest(): "+set2.smallest());
+		System.out.println("set2.largest(): "+set2.largest());
+		set2.add(-100);
+		set2.add(50);
+		System.out.println("\nAdding -100 and 50 to set 2, current set2:"+set2.toString());
+		System.out.println("Rechecking smallest and largest for set2:");
+		System.out.println("set2.smallest(): "+set2.smallest());
+		System.out.println("set2.largest(): "+set2.largest());
+		System.out.println("\nTesting smallest and largest method on empty set3:"+set3.toString());
+		System.out.println("set3.smallest(): "+set3.smallest());
+		System.out.println("set3.largest(): "+set3.largest());
+		
+		// test remove
+		System.out.println("\nH. Testing remove method:");
+		System.out.println("Current set2: "+set2.toString());
+		set2.remove(-100);
+		System.out.println("set2 after set2.remove(-100):"+set2.toString());
+		System.out.println("Testing remove method on number not in IntegerSet...");
+		set2.remove(25);
+		System.out.println("set2 after set2.remove(25):"+set2.toString());
 	}
 
 }

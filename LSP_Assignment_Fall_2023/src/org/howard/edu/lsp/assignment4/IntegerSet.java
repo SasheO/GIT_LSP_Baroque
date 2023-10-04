@@ -58,12 +58,23 @@ public class IntegerSet {
 		return this.set.contains(value);
 	};    
 
-	public int largest()  {
-		return  Collections.max(this.set);
+	public Integer largest()  {
+		if (this.length()==0) {
+			return null;
+		}
+		else {
+			return  Collections.max(this.set);
+		}
 	}; 
 
-	public int smallest() {
-		return  Collections.min(this.set);
+	public Integer smallest() {
+		if (this.length()==0) {
+			return null;
+		}
+		else {
+			return  Collections.min(this.set);
+		}
+		
 	};
 
 	 public void add(int item) {
@@ -74,7 +85,7 @@ public class IntegerSet {
 
 	public void remove(int item) {
 		if (this.set.contains(item)) {
-			this.set.remove(item);
+			this.set.remove(Integer.valueOf(item));
 		}
 	}; 
 	

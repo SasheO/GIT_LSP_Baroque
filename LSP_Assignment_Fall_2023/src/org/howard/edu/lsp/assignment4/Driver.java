@@ -105,18 +105,74 @@ public class Driver {
 				
 		// test union
 		System.out.println("\nJ. Testing union method:");
+		System.out.println("Current set1: "+set1.toString());
+		System.out.println("Current set2: "+set2.toString());
+		System.out.println("set2.union(set1) should not change anything since set1 c set2. Testing this out:");
+		set2.union(set2);
+		System.out.println("set2 after set2.union(set1): "+set2.toString());
+		System.out.println("set1.union(set2) should change set1 to [1, 2, 3, 4, 50]. Testing this out:");
+		set1.union(set2);
+		System.out.println("set1 after set1.union(set2): "+set1.toString());
+		System.out.println("Resetting set1 and set2 to their earlier values...");
+		set1.clear();
+		set1.add(1);
 		
 		// test intersect
 		System.out.println("\nK. Testing intersect method:");
+		System.out.println("Current set1: "+set1.toString());
+		System.out.println("Current set2: "+set2.toString());
+		set1.intersect(set2);
+		System.out.println("set1 after set1.intersect(set2):"+set1.toString());
+		System.out.println("\nResetting set1 to earlier values...");
+		set1.clear();
+		set1.add(1);
+		System.out.println("Current set1: "+set1.toString());
+		System.out.println("Current set2: "+set2.toString());
+		set2.intersect(set1);
+		System.out.println("set2 after set2.intersect(set1):"+set2.toString());
+		System.out.println("Resetting set2 to earlier values...");
+		set2 = new IntegerSet(new ArrayList<Integer>(Arrays.asList(1,2,3,4,50)));
 
+		
 		// test diff
 		System.out.println("\nL. Testing diff method:");
+		System.out.println("Current set1: "+set1.toString());
+		System.out.println("Current set2: "+set2.toString());
+		set1.diff(set2);
+		System.out.println("set1 after set1.diff(set2):"+set1.toString());
+		System.out.println("\nResetting set1 to earlier values...");
+		set1.clear();
+		set1.add(1);
+		System.out.println("Current set1: "+set1.toString());
+		System.out.println("Current set2: "+set2.toString());
+		set2.diff(set1);
+		System.out.println("set2 after set2.diff(set1):"+set2.toString());
+		System.out.println("Resetting set2 to earlier values...");
+		set2 = new IntegerSet(new ArrayList<Integer>(Arrays.asList(1,2,3,4,50)));
+
 		
 		// test complement
 		System.out.println("\nM. Testing complement method:");
+		System.out.println("Current set1: "+set1.toString());
+		System.out.println("Current set2: "+set2.toString());
+		set1.complement(set2);
+		System.out.println("set1 after set1.complement(set2):"+set1.toString());
+		System.out.println("\nResetting set1 to earlier values...");
+		set1.clear();
+		set1.add(1);
+		System.out.println("Current set1: "+set1.toString());
+		System.out.println("Current set2: "+set2.toString());
+		set2.complement(set1);
+		System.out.println("set2 after set2.complement(set1):"+set2.toString());
+		System.out.println("Resetting set2 to earlier values...");
+		set2 = new IntegerSet(new ArrayList<Integer>(Arrays.asList(1,2,3,4,50)));
+
 		
 		// test toString
-		System.out.println("\nO. The only method not explicitly tested was toString, but it has been implicitly tested in all the print statements showing the state of the method already.");
+		System.out.println("\nO. Testing toString method:");
+		System.out.println("set1.toString(): "+set1.toString());
+		System.out.println("set2.toString(): "+set2.toString());
+		System.out.println("set3.toString(): "+set3.toString());
 	}
 
 }

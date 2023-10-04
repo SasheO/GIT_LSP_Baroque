@@ -94,6 +94,29 @@ public class Driver {
 		System.out.println("Testing remove method on number not in IntegerSet...");
 		set2.remove(25);
 		System.out.println("set2 after set2.remove(25):"+set2.toString());
+		
+		// test isEmpty
+		System.out.println("\nI. Testing isEmpty method:");
+		System.out.println("Current set3 is actually empty: "+set3.toString());
+		System.out.println("set3.isEmpty():"+set3.isEmpty());
+		System.out.println("Current set1 is not empty: "+set1.toString());
+		System.out.println("set1.isEmpty():"+set1.isEmpty());
+		
+				
+		// test union
+		System.out.println("\nJ. Testing union method:");
+		
+		// test intersect
+		System.out.println("\nK. Testing intersect method:");
+
+		// test diff
+		System.out.println("\nL. Testing diff method:");
+		
+		// test complement
+		System.out.println("\nM. Testing complement method:");
+		
+		// test toString
+		System.out.println("\nO. The only method not explicitly tested was toString, but it has been implicitly tested in all the print statements showing the state of the method already.");
 	}
 
 }

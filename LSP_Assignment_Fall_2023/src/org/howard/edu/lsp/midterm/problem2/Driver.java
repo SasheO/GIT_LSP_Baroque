@@ -13,6 +13,11 @@ public class Driver {
 	    Range range4 = new Range(5,-1);
 	    
 	    int testValue = 7;
+	    System.out.println("\nTesting if " + testValue + " in range1:" + range1.isValueInRange(testValue));
+	    System.out.println("Testing if " + testValue + " in range2:" + range2.isValueInRange(testValue));
+	    System.out.println("Testing if " + testValue + " in range3:" + range3.isValueInRange(testValue));
+	    System.out.println("Testing if " + testValue + " in range4:" + range4.isValueInRange(testValue));
+	    testValue = -1;
 	    System.out.println("Testing if " + testValue + " in range1:" + range1.isValueInRange(testValue));
 	    System.out.println("Testing if " + testValue + " in range2:" + range2.isValueInRange(testValue));
 	    System.out.println("Testing if " + testValue + " in range3:" + range3.isValueInRange(testValue));

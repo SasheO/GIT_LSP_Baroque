@@ -102,9 +102,9 @@ class IntegerSetTest {
 		assertEquals(set1.largest(), null);
 		assertEquals(set2.largest(), 4);
 		set2 = new IntegerSet(new ArrayList<>(Arrays.asList(-50,1,2,2,3,4, 100)));
-		assertEquals(set2.smallest(), -50);
-		assertEquals(set4.smallest(), 4);
-		assertEquals(set3.smallest(), 4);
+		assertEquals(set2.largest(), 100);
+		assertEquals(set4.largest(), 6);
+		assertEquals(set3.largest(), 6);
 	}
 	
 
@@ -114,39 +114,82 @@ class IntegerSetTest {
 		assertEquals(set1.smallest(), null);
 		assertEquals(set2.smallest(), 1);
 		set2 = new IntegerSet(new ArrayList<>(Arrays.asList(-50,1,2,2,3,4, 100)));
-		assertEquals(set2.largest(), 100);
-		assertEquals(set4.largest(), 6);
-		assertEquals(set3.largest(), 6);		
+		assertEquals(set2.smallest(), -50);
+		assertEquals(set4.smallest(), 4);
+		assertEquals(set3.smallest(), 4);		
 	}
 
 
 	@Test
 	@DisplayName("Test case for add")
 	void testAdd() {
-				
+		// test adding number not already in set
+		set1.add(1);
+		IntegerSet set5 = new IntegerSet(new ArrayList<>(Arrays.asList(1)));
+		assertTrue(set1.equals(set5));
+		set1.add(2);
+		set5 = new IntegerSet(new ArrayList<>(Arrays.asList(1,2)));
+		assertTrue(set1.equals(set5));
+		
+		// test adding number already  in set
+		set4.add(4);
+		assertTrue(set4.equals(set3));
+		set3.add(6);
+		assertTrue(set3.equals(set4));
 	}
 
 	@Test
 	@DisplayName("Test case for remove")
 	void testRemove() {
-				
+		// test remove element in set
+		set2.remove(1);
+		IntegerSet set5 = new IntegerSet(new ArrayList<>(Arrays.asList(2,3,4)));
+		assertTrue(set2.equals(set5));
+		set2.remove(3);
+		set2.remove(4);
+		set2.remove(2);
+		assertTrue(set2.equals(set1));
+		
+		//test removing element not in set
+		set3.remove(100);
+		assertTrue(set3.equals(set4));
+		
+		//test removing element from empty set
+		set1.remove(1); // should do nothing
+		assertTrue(set1.equals(set4)); // they should both be empty sets
 	}
 	
 	@Test
 	@DisplayName("Test case for getSet")
 	void testGetSet() {
-				
+		assertEquals(set1.getSet(), new ArrayList<Integer>());
+		assertEquals(set2.getSet(),  new ArrayList<>(Arrays.asList(1,2,3,4)));
+		assertEquals(set3.getSet(),  new ArrayList<>(Arrays.asList(4,5,6)));
+		assertEquals(set4.getSet(),  new ArrayList<>(Arrays.asList(5,6,4)));
 	}
 	
 	@Test
 	@DisplayName("Test case for union")
 	void testUnion() {
-				
+		// test union with empty set1
+		set3.union(set1);
+		assertTrue(set3.equals(set4)); // should still be equal
+		
+		// test union of sets containing some of the same element (4)
+		IntegerSet set5 = new IntegerSet(new ArrayList<>(Arrays.asList(1,2,3,4,5,6)));
+		set2.union(set4);
+		assertTrue(set2.equals(set5)); // the union is equivalent IntegerSet set5
 	}
 	
 	@Test
 	@DisplayName("Test case for intersect")
 	void testIntersect() {
+		// TODO
+		// test intersect of disjoint sets
+		
+		// test intersect of empty set and non-empty set
+		
+		// test intersect of two non-empty sets with some common element(s)
 				
 	}
 	

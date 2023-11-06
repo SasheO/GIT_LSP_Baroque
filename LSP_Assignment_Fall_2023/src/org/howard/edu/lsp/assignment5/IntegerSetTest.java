@@ -115,11 +115,6 @@ class IntegerSetTest {
 		/**
 		 * Tests largest() instance method
 		 */
-		// check empty set. should throw an IntegerSetException
-		assertThrows(IntegerSetException.class,
-	            ()->{
-	            	set1.largest();
-	            });
 		
 		
 		// check largest in non-empty sets
@@ -129,6 +124,13 @@ class IntegerSetTest {
 		// modify set2 and check new largest
 		set2 = new IntegerSet(new ArrayList<>(Arrays.asList(-50,1,2,2,3,4, 100)));
 		assertEquals(set2.largest(), 100);
+		
+		
+		// check empty set. should throw NoSuchElementException
+		
+		NoSuchElementException thrown = assertThrows(NoSuchElementException.class, ()->set1.largest() );
+		assertEquals("empty IntegerSet", thrown.getMessage());
+
 	}
 	
 
@@ -138,13 +140,7 @@ class IntegerSetTest {
 		/**
 		 * Tests smallest() instance method
 		 */
-		// check empty set. should throw an IntegerSetException
-		assertThrows(IntegerSetException.class,
-	            ()->{
-	            	set1.smallest();
-	            });
 		
-
 		// check smallest in non-empty sets
 		assertEquals(set2.smallest(), 1);
 		assertEquals(set4.smallest(), 4);
@@ -152,6 +148,11 @@ class IntegerSetTest {
 		//edit set2 and check new smallest
 		set2 = new IntegerSet(new ArrayList<>(Arrays.asList(-50,1,2,2,3,4, 100)));
 		assertEquals(set2.smallest(), -50);
+		
+		// check empty set. should throw NoSuchElementException
+		NoSuchElementException thrown = assertThrows(NoSuchElementException.class, ()->set1.smallest() );
+		assertEquals("empty IntegerSet", thrown.getMessage());
+
 	
 	}
 

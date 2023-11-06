@@ -1,6 +1,7 @@
 package org.howard.edu.lsp.assignment5;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.NoSuchElementException;
 
 /**
  * Driver is a class to test IntegerSet
@@ -81,13 +82,13 @@ public class Driver {
 		System.out.println("Current set2: "+set2.toString());
 		try {
 			System.out.println("set2.smallest(): "+set2.smallest());
-		} catch (IntegerSetException e) {
+		} catch (NoSuchElementException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
 			System.out.println("set2.largest(): "+set2.largest());
-		} catch (IntegerSetException e) {
+		} catch (NoSuchElementException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -97,26 +98,26 @@ public class Driver {
 		System.out.println("Rechecking smallest and largest for set2:");
 		try {
 			System.out.println("set2.smallest(): "+set2.smallest());
-		} catch (IntegerSetException e) {
+		} catch (NoSuchElementException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
 			System.out.println("set2.largest(): "+set2.largest());
-		} catch (IntegerSetException e) {
+		} catch (NoSuchElementException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		System.out.println("\nTesting smallest and largest method on empty set3:"+set3.toString());
 		try {
 			System.out.println("set3.smallest(): "+set3.smallest());
-		} catch (IntegerSetException e) {
+		} catch (NoSuchElementException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
 			System.out.println("set3.largest(): "+set3.largest());
-		} catch (IntegerSetException e) {
+		} catch (NoSuchElementException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

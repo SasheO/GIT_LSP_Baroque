@@ -173,9 +173,9 @@ class IntegerSetTest {
 		
 		// test adding number already  in set
 		set4.add(4);
-		assertTrue(set4.equals(set3));
+		assertTrue(set4.equals(set3)); // these were equal before adding, should still be equal
 		set3.add(6);
-		assertTrue(set3.equals(set4));
+		assertTrue(set3.equals(set4)); // these were equal before adding, should still be equal
 	}
 
 	@Test
@@ -194,8 +194,8 @@ class IntegerSetTest {
 		assertTrue(set2.equals(set1));
 		
 		//test removing element not in set
-		set3.remove(100);
-		assertTrue(set3.equals(set4));
+		set3.remove(100); // should do nothing, not raise an error
+		assertTrue(set3.equals(set4)); // these were equal before removing, should still be equal
 		
 		//test removing element from empty set
 		set1.remove(1); // should do nothing

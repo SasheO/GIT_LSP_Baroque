@@ -115,8 +115,12 @@ class IntegerSetTest {
 		/**
 		 * Tests largest() instance method
 		 */
-		// check empty set. in this implementation, returns null
-		assertEquals(set1.largest(), null);
+		// check empty set. should throw an IntegerSetException
+		assertThrows(IntegerSetException.class,
+	            ()->{
+	            	set1.largest();
+	            });
+		
 		
 		// check largest in non-empty sets
 		assertEquals(set2.largest(), 4);
@@ -134,8 +138,12 @@ class IntegerSetTest {
 		/**
 		 * Tests smallest() instance method
 		 */
-		// check empty set. in this implementation, returns null
-		assertEquals(set1.smallest(), null);
+		// check empty set. should throw an IntegerSetException
+		assertThrows(IntegerSetException.class,
+	            ()->{
+	            	set1.smallest();
+	            });
+		
 
 		// check smallest in non-empty sets
 		assertEquals(set2.smallest(), 1);

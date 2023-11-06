@@ -79,17 +79,47 @@ public class Driver {
 		// test largest and smallest
 		System.out.println("\nG. Testing smallest and largest method:");
 		System.out.println("Current set2: "+set2.toString());
-		System.out.println("set2.smallest(): "+set2.smallest());
-		System.out.println("set2.largest(): "+set2.largest());
+		try {
+			System.out.println("set2.smallest(): "+set2.smallest());
+		} catch (IntegerSetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			System.out.println("set2.largest(): "+set2.largest());
+		} catch (IntegerSetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		set2.add(-100);
 		set2.add(50);
 		System.out.println("\nAdding -100 and 50 to set 2, current set2:"+set2.toString());
 		System.out.println("Rechecking smallest and largest for set2:");
-		System.out.println("set2.smallest(): "+set2.smallest());
-		System.out.println("set2.largest(): "+set2.largest());
+		try {
+			System.out.println("set2.smallest(): "+set2.smallest());
+		} catch (IntegerSetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			System.out.println("set2.largest(): "+set2.largest());
+		} catch (IntegerSetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		System.out.println("\nTesting smallest and largest method on empty set3:"+set3.toString());
-		System.out.println("set3.smallest(): "+set3.smallest());
-		System.out.println("set3.largest(): "+set3.largest());
+		try {
+			System.out.println("set3.smallest(): "+set3.smallest());
+		} catch (IntegerSetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			System.out.println("set3.largest(): "+set3.largest());
+		} catch (IntegerSetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		// test remove
 		System.out.println("\nH. Testing remove method:");

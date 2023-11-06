@@ -13,6 +13,11 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class IntegerSetTest {
+	/**
+	 * IntegerSetTest is JUnit class for IntegerSet.
+	 * @author Mezisashe Ojuba
+	 * 
+	 */
 	
 	IntegerSet set1;
 	IntegerSet set2;
@@ -40,6 +45,9 @@ class IntegerSetTest {
 	@Test
 	@DisplayName("Test case for clear")
 	void testClear() {
+		/**
+		 * Tests clear() instance method
+		 */
 		// clear both empty and non-empty sets
 		set1.clear();
 		set2.clear();
@@ -54,6 +62,9 @@ class IntegerSetTest {
 	@Test
 	@DisplayName("Test case for length")
 	void testLength() {
+		/**
+		 * Tests length() instance method
+		 */
 		assertEquals(set1.length(), 0);
 		assertEquals(set2.length(), 4);
 		assertEquals(set3.length(), 3);
@@ -65,6 +76,9 @@ class IntegerSetTest {
 	@Test
     @DisplayName("Test case for equals")
     public void testEquals() {
+		/**
+		 * Tests equals() instance method
+		 */
        // JUnit test case(s) for equal
 		IntegerSet set5 = new IntegerSet(new ArrayList<>(Arrays.asList(-1,2,2,3,4)));
 		assertTrue(set3.equals(set4));
@@ -82,6 +96,9 @@ class IntegerSetTest {
 	@Test
 	@DisplayName("Test case for contains")
 	void testContains() {
+		/**
+		 * Tests contains() instance method
+		 */
 		assertTrue(set2.contains(1));
 		assertFalse(set2.contains(10));
 		assertFalse(set1.contains(1));
@@ -95,6 +112,9 @@ class IntegerSetTest {
 	@Test
 	@DisplayName("Test case for largest")
 	void testLargest() {
+		/**
+		 * Tests largest() instance method
+		 */
 		// check empty set. in this implementation, returns null
 		assertEquals(set1.largest(), null);
 		
@@ -111,6 +131,9 @@ class IntegerSetTest {
 	@Test
 	@DisplayName("Test case for smallest")
 	void testSmallest() {
+		/**
+		 * Tests smallest() instance method
+		 */
 		// check empty set. in this implementation, returns null
 		assertEquals(set1.smallest(), null);
 
@@ -128,6 +151,9 @@ class IntegerSetTest {
 	@Test
 	@DisplayName("Test case for add")
 	void testAdd() {
+		/**
+		 * Tests add() instance method
+		 */
 		// test adding number not already in set
 		set1.add(1);
 		IntegerSet set5 = new IntegerSet(new ArrayList<>(Arrays.asList(1)));
@@ -146,6 +172,9 @@ class IntegerSetTest {
 	@Test
 	@DisplayName("Test case for remove")
 	void testRemove() {
+		/**
+		 * Tests remove() instance method
+		 */
 		// test remove element in set
 		set2.remove(1);
 		IntegerSet set5 = new IntegerSet(new ArrayList<>(Arrays.asList(2,3,4)));
@@ -167,6 +196,9 @@ class IntegerSetTest {
 	@Test
 	@DisplayName("Test case for union")
 	void testUnion() {
+		/**
+		 * Tests union() instance method
+		 */
 		// test union with empty set1
 		set3.union(set1);
 		assertTrue(set3.equals(set4)); // should still be equal
@@ -180,6 +212,9 @@ class IntegerSetTest {
 	@Test
 	@DisplayName("Test case for intersect")
 	void testIntersect() {
+		/**
+		 * Tests intersect() instance method
+		 */
 		// test intersect of disjoint sets
 		IntegerSet set5 = new IntegerSet(new ArrayList<>(Arrays.asList(99,100,-55)));
 		set5.intersect(set2);
@@ -197,6 +232,9 @@ class IntegerSetTest {
 	@Test
 	@DisplayName("Test case for diff")
 	void testDiff() {
+		/**
+		 * Tests diff() instance method
+		 */
 		// test diff of disjoint sets
 		IntegerSet set5 = new IntegerSet(new ArrayList<>(Arrays.asList(99,100,-55)));
 		set5.diff(set2);
@@ -214,6 +252,9 @@ class IntegerSetTest {
 	@Test
 	@DisplayName("Test case for complement")
 	void testComplement() {
+		/**
+		 * Tests complement() instance method
+		 */
 		// test complement of disjoint sets
 		IntegerSet set5 = new IntegerSet(new ArrayList<>(Arrays.asList(99,100,-55)));
 		set5.complement(set2);
@@ -231,6 +272,9 @@ class IntegerSetTest {
 	@Test
 	@DisplayName("Test case for isEmpty")
 	void testIsEmpty() {
+		/**
+		 * Tests isEmpty() instance method
+		 */
 		// test empty set
 		assertTrue(set1.isEmpty());
 		
@@ -242,6 +286,9 @@ class IntegerSetTest {
 	@Test
 	@DisplayName("Test case for toString")
 	void testToString() {
+		/**
+		 * Tests toString() instance method
+		 */
 		assertEquals(set1.toString(), "[]");
 		assertEquals(set2.toString(), "[1, 2, 3, 4]");
 	}

@@ -32,13 +32,7 @@ class IntegerSetTest {
 	}
 	
 	@Test
-	@DisplayName("Test case for constructor with ArrayList<Integer> parameter")
-	void testIntegerSet(ArrayList<Integer> set) {
-		// TODO
-	}
-	
-	@Test
-	@DisplayName("Test case for constructor with no parameter")
+	@DisplayName("Test case for constructor")
 	void testIntegerSet() {
 		assertEquals(set1.getSet(), new ArrayList<Integer>());
 	}
@@ -101,7 +95,9 @@ class IntegerSetTest {
 	@DisplayName("Test case for largest")
 	void testLargest() {
 		// empty set set1.largest() should throw NoSuchElementException
-		assertThrows(NoSuchElementException.class, () -> set1.largest());
+		Exception exception = assertThrows(Exception.class, () -> {set1.largest();});
+		assertEquals("empty set", exception.getMessage());
+		assertEquals("empty set", exception.getMessage());
 		
 		// check largest in non-empty sets
 		assertEquals(set2.largest(), 4);
@@ -115,9 +111,10 @@ class IntegerSetTest {
 
 	@Test
 	@DisplayName("Test case for smallest")
-	void testSmallest() throws NoSuchElementException {
+	void testSmallest() {
 		// empty set set1.smallest() should throw NoSuchElementException
-		assertThrows(NoSuchElementException.class, () -> set1.smallest());
+		Exception exception = assertThrows(Exception.class, () -> {set1.smallest();});
+		assertEquals("empty set", exception.getMessage());
 
 		// check smallest in non-empty sets
 		assertEquals(set2.smallest(), 1);
@@ -166,7 +163,7 @@ class IntegerSetTest {
 		
 		//test removing element from empty set
 		set1.remove(1); // should do nothing
-		assertTrue(set1.equals(set4)); // they should both be empty sets
+		assertTrue(set1.equals(new IntegerSet())); // they should both be empty sets
 	}
 	
 	@Test
@@ -188,7 +185,7 @@ class IntegerSetTest {
 		// test intersect of disjoint sets
 		IntegerSet set5 = new IntegerSet(new ArrayList<>(Arrays.asList(99,100,-55)));
 		set5.intersect(set2);
-		assertTrue(set2.equals(new IntegerSet()));
+		assertTrue(set5.equals(new IntegerSet()));
 		
 		// test intersect of empty set and non-empty set
 		set4.intersect(set1);
@@ -205,7 +202,7 @@ class IntegerSetTest {
 		// test diff of disjoint sets
 		IntegerSet set5 = new IntegerSet(new ArrayList<>(Arrays.asList(99,100,-55)));
 		set5.diff(set2);
-		assertTrue(set2.equals(new IntegerSet(new ArrayList<>(Arrays.asList(99,100,-55)))));
+		assertTrue(set5.equals(new IntegerSet(new ArrayList<>(Arrays.asList(99,100,-55)))));
 			
 		// test diff of empty set and non-empty set
 		set4.diff(set1);
@@ -219,7 +216,18 @@ class IntegerSetTest {
 	@Test
 	@DisplayName("Test case for complement")
 	void testComplement() {
-				
+		// test complement of disjoint sets
+		IntegerSet set5 = new IntegerSet(new ArrayList<>(Arrays.asList(99,100,-55)));
+		set5.complement(set2);
+		assertTrue(set2.equals(set5));
+					
+		// test complement of empty set and non-empty set
+		set4.complement(set1);
+		assertTrue(set4.equals(new IntegerSet())); // should be empty
+					
+		// test complement of two non-empty sets with some common element(s)
+		set3.complement(set2);
+		assertTrue(set3.equals(new IntegerSet(new ArrayList<>(Arrays.asList(1,2,3)))));	
 	}
 	
 	@Test

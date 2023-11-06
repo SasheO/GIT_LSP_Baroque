@@ -2,6 +2,7 @@ package org.howard.edu.lsp.assignment5;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Collections;
 
 /**
@@ -82,30 +83,25 @@ public class IntegerSet {
 	};    
 
 	/**
-	 * Returns the numerically largest integer in the set
+	 * Returns the numerically largest integer in the set.  throws NoSuchElementException for an empty set
 	 * @return null if set is empty or the largest integer if the set is non-empty
 	 */
-	public Integer largest()  {
-		if (this.length()==0) {
-			return null;
+	public Integer largest() {
+		if (this.length() == 0 ){
+			throw new NoSuchElementException("empty set");
 		}
-		else {
-			return  Collections.max(this.set);
-		}
+		return  Collections.max(this.set);
 	}; 
 
 	/**
-	 * Returns the numerically smallest integer in the set
-	 * @return null if set is empty or the smallest integer if the set is non-empty
+	 * Returns the numerically smallest integer in the set. throws NoSuchElementException for an empty set
+	 * @return the smallest integer if the set is non-empty
 	 */
-	public Integer smallest() {
-		if (this.length()==0) {
-			return null;
+	public Integer smallest(){
+		if (this.length() == 0 ){
+			throw new NoSuchElementException("empty set");
 		}
-		else {
-			return  Collections.min(this.set);
-		}
-		
+		return  Collections.min(this.set);
 	};
 
 	/**

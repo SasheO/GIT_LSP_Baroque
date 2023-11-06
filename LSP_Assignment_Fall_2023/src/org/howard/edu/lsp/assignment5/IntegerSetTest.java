@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.NoSuchElementException;
 
 import org.howard.edu.lsp.assignment4.IntegerSet;
 import org.junit.jupiter.api.AfterAll;
@@ -99,24 +100,33 @@ class IntegerSetTest {
 	@Test
 	@DisplayName("Test case for largest")
 	void testLargest() {
-		assertEquals(set1.largest(), null);
+		// empty set set1.largest() should throw NoSuchElementException
+		assertThrows(NoSuchElementException.class, () -> set1.largest());
+		
+		// check largest in non-empty sets
 		assertEquals(set2.largest(), 4);
-		set2 = new IntegerSet(new ArrayList<>(Arrays.asList(-50,1,2,2,3,4, 100)));
-		assertEquals(set2.largest(), 100);
 		assertEquals(set4.largest(), 6);
 		assertEquals(set3.largest(), 6);
+		// modify set2 and check new largest
+		set2 = new IntegerSet(new ArrayList<>(Arrays.asList(-50,1,2,2,3,4, 100)));
+		assertEquals(set2.largest(), 100);
 	}
 	
 
 	@Test
 	@DisplayName("Test case for smallest")
-	void testSmallest() {
-		assertEquals(set1.smallest(), null);
+	void testSmallest() throws NoSuchElementException {
+		// empty set set1.smallest() should throw NoSuchElementException
+		assertThrows(NoSuchElementException.class, () -> set1.smallest());
+
+		// check smallest in non-empty sets
 		assertEquals(set2.smallest(), 1);
+		assertEquals(set4.smallest(), 4);
+		assertEquals(set3.smallest(), 4);	
+		//edit set2 and check new smallest
 		set2 = new IntegerSet(new ArrayList<>(Arrays.asList(-50,1,2,2,3,4, 100)));
 		assertEquals(set2.smallest(), -50);
-		assertEquals(set4.smallest(), 4);
-		assertEquals(set3.smallest(), 4);		
+	
 	}
 
 
@@ -160,15 +170,6 @@ class IntegerSetTest {
 	}
 	
 	@Test
-	@DisplayName("Test case for getSet")
-	void testGetSet() {
-		assertEquals(set1.getSet(), new ArrayList<Integer>());
-		assertEquals(set2.getSet(),  new ArrayList<>(Arrays.asList(1,2,3,4)));
-		assertEquals(set3.getSet(),  new ArrayList<>(Arrays.asList(4,5,6)));
-		assertEquals(set4.getSet(),  new ArrayList<>(Arrays.asList(5,6,4)));
-	}
-	
-	@Test
 	@DisplayName("Test case for union")
 	void testUnion() {
 		// test union with empty set1
@@ -184,19 +185,35 @@ class IntegerSetTest {
 	@Test
 	@DisplayName("Test case for intersect")
 	void testIntersect() {
-		// TODO
 		// test intersect of disjoint sets
+		IntegerSet set5 = new IntegerSet(new ArrayList<>(Arrays.asList(99,100,-55)));
+		set5.intersect(set2);
+		assertTrue(set2.equals(new IntegerSet()));
 		
 		// test intersect of empty set and non-empty set
+		set4.intersect(set1);
+		assertTrue(set4.equals(new IntegerSet()));
 		
 		// test intersect of two non-empty sets with some common element(s)
-				
+		set3.intersect(set2);
+		assertTrue(set3.equals(new IntegerSet(new ArrayList<>(Arrays.asList(4)))));
 	}
 	
 	@Test
 	@DisplayName("Test case for diff")
 	void testDiff() {
-				
+		// test diff of disjoint sets
+		IntegerSet set5 = new IntegerSet(new ArrayList<>(Arrays.asList(99,100,-55)));
+		set5.diff(set2);
+		assertTrue(set2.equals(new IntegerSet(new ArrayList<>(Arrays.asList(99,100,-55)))));
+			
+		// test diff of empty set and non-empty set
+		set4.diff(set1);
+		assertTrue(set4.equals(new IntegerSet(new ArrayList<>(Arrays.asList(4,5,6))))); // should still be the same as before
+			
+		// test diff of two non-empty sets with some common element(s)
+		set3.diff(set2);
+		assertTrue(set3.equals(new IntegerSet(new ArrayList<>(Arrays.asList(5,6)))));
 	}
 	
 	@Test

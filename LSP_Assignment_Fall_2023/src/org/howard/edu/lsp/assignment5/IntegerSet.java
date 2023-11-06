@@ -86,9 +86,9 @@ public class IntegerSet {
 	 * Returns the numerically largest integer in the set
 	 * @return null if set is empty or the largest integer if the set is non-empty
 	 */
-	public Integer largest() throws NoSuchElementException  {
+	public Integer largest() throws IntegerSetException  {
 		if (this.length()==0) {
-			throw new NoSuchElementException("empty IntegerSet");
+			throw new IntegerSetException("empty IntegerSet");
 		}
 		else {
 			return  Collections.max(this.set);
@@ -99,9 +99,9 @@ public class IntegerSet {
 	 * Returns the numerically smallest integer in the set
 	 * @return null if set is empty or the smallest integer if the set is non-empty
 	 */
-	public Integer smallest() throws NoSuchElementException  {
+	public Integer smallest() throws IntegerSetException  {
 		if (this.length()==0) {
-			throw new NoSuchElementException("empty IntegerSet");
+			throw new IntegerSetException("empty IntegerSet");
 		}
 		else {
 			return  Collections.min(this.set);

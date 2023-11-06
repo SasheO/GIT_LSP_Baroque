@@ -127,10 +127,8 @@ class IntegerSetTest {
 		
 		
 		// check empty set. should throw NoSuchElementException
-		
-		NoSuchElementException thrown = assertThrows(NoSuchElementException.class, ()->set1.largest() );
+		IntegerSetException thrown = assertThrows(IntegerSetException.class, ()->set1.largest() );
 		assertEquals("empty IntegerSet", thrown.getMessage());
-
 	}
 	
 
@@ -150,9 +148,8 @@ class IntegerSetTest {
 		assertEquals(set2.smallest(), -50);
 		
 		// check empty set. should throw NoSuchElementException
-		NoSuchElementException thrown = assertThrows(NoSuchElementException.class, ()->set1.smallest() );
+		IntegerSetException thrown = assertThrows(IntegerSetException.class, ()->set1.smallest() );
 		assertEquals("empty IntegerSet", thrown.getMessage());
-
 	
 	}
 

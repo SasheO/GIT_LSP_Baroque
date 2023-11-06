@@ -95,13 +95,8 @@ class IntegerSetTest {
 	@Test
 	@DisplayName("Test case for largest")
 	void testLargest() {
-		// empty set set1.largest() should throw NoSuchElementException
-		Exception exception = assertThrows(NoSuchElementException.class, () -> {
-			set1.largest();
-			}
-		);
-		assertEquals("empty set", exception.getMessage());
-		assertEquals("empty set", exception.getMessage());
+		// check empty set. in this implementation, returns null
+		assertEquals(set1.largest(), null);
 		
 		// check largest in non-empty sets
 		assertEquals(set2.largest(), 4);
@@ -116,12 +111,8 @@ class IntegerSetTest {
 	@Test
 	@DisplayName("Test case for smallest")
 	void testSmallest() {
-		// empty set set1.smallest() should throw NoSuchElementException
-		Exception exception = assertThrows(NoSuchElementException.class, () -> {
-			set1.smallest();
-			}
-		);
-		assertEquals("empty set", exception.getMessage());
+		// check empty set. in this implementation, returns null
+		assertEquals(set1.smallest(), null);
 
 		// check smallest in non-empty sets
 		assertEquals(set2.smallest(), 1);

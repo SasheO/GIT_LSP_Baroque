@@ -34,20 +34,21 @@ class IntegerSetTest {
 	@Test
 	@DisplayName("Test case for constructor")
 	void testIntegerSet() {
-		assertEquals(set1.getSet(), new ArrayList<Integer>());
+		assertTrue(set1.equals(new IntegerSet()));
 	}
 	
 	@Test
 	@DisplayName("Test case for clear")
 	void testClear() {
+		// clear both empty and non-empty sets
 		set1.clear();
 		set2.clear();
 		set3.clear();
 		set4.clear();
-		assertEquals(set1.getSet(), new ArrayList<Integer>());
-		assertEquals(set2.getSet(), new ArrayList<Integer>());
-		assertEquals(set3.getSet(), new ArrayList<Integer>());
-		assertEquals(set4.getSet(), new ArrayList<Integer>());	
+		assertTrue(set1.equals(new IntegerSet()));
+		assertTrue(set2.equals(new IntegerSet()));
+		assertTrue(set3.equals(new IntegerSet()));
+		assertTrue(set4.equals(new IntegerSet()));
 	}
 	
 	@Test
@@ -95,7 +96,10 @@ class IntegerSetTest {
 	@DisplayName("Test case for largest")
 	void testLargest() {
 		// empty set set1.largest() should throw NoSuchElementException
-		Exception exception = assertThrows(Exception.class, () -> {set1.largest();});
+		Exception exception = assertThrows(NoSuchElementException.class, () -> {
+			set1.largest();
+			}
+		);
 		assertEquals("empty set", exception.getMessage());
 		assertEquals("empty set", exception.getMessage());
 		
@@ -113,7 +117,10 @@ class IntegerSetTest {
 	@DisplayName("Test case for smallest")
 	void testSmallest() {
 		// empty set set1.smallest() should throw NoSuchElementException
-		Exception exception = assertThrows(Exception.class, () -> {set1.smallest();});
+		Exception exception = assertThrows(NoSuchElementException.class, () -> {
+			set1.smallest();
+			}
+		);
 		assertEquals("empty set", exception.getMessage());
 
 		// check smallest in non-empty sets
@@ -233,12 +240,18 @@ class IntegerSetTest {
 	@Test
 	@DisplayName("Test case for isEmpty")
 	void testIsEmpty() {
+		// test empty set
+		assertTrue(set1.isEmpty());
+		
+		// test non-empty set
+		assertFalse(set2.isEmpty());
 				
 	}
 	
 	@Test
 	@DisplayName("Test case for toString")
 	void testToString() {
-				
+		assertEquals(set1.toString(), "[]");
+		assertEquals(set2.toString(), "[1, 2, 3, 4]");
 	}
 }

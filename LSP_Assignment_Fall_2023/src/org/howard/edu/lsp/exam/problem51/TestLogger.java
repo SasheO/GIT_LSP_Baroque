@@ -39,7 +39,11 @@ class TestLogger {
 	@Test
 	@DisplayName("Test case for displayLog")
 	void testDisplayLog() {
-		fail("Not yet implemented");
+		assertEquals(logger.displayLog(), "Log:\n");
+		logger.logMessage("test 1");
+		assertEquals(logger.displayLog(), "Log:\ntest 1\n");
+		logger.logMessage("test 2");
+		assertEquals(logger.displayLog(), "Log:\ntest 1\ntest 2\n");
 	}
 
 }

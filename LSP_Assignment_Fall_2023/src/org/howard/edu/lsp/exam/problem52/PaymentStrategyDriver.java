@@ -9,7 +9,7 @@ public class PaymentStrategyDriver {
 		shoppingCart.checkout(100.0);
 		shoppingCart.setPaymentMethod(new PayPalPayment("user@example.com"));
 		shoppingCart.checkout(50.0);
-		shoppingCart.setPaymentMethod(new BitcoinPayment("user@example.com"));
+		shoppingCart.setPaymentMethod(new BitconPayment("user@example.com"));
 		shoppingCart.checkout(75.0);
 	}
 

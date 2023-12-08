@@ -8,7 +8,10 @@ public class Logger {
     private Logger() {
         this.log = "";
     }
-
+    
+    private Logger(String message) {
+        this.log = "";
+    }
 
     public void logMessage(String message) {
         this.log += message + "\n";
@@ -19,7 +22,7 @@ public class Logger {
         
     }
     
-    public static Logger loggerInstance () {
+    public static Logger getInstance (String logMessage) {
     	if (logger == null) { 
     		logger = new Logger();
     	}

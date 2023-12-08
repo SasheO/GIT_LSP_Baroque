@@ -11,7 +11,7 @@ public class PayPalPayment implements PaymentStrategy{
 	@Override
 	public void pay(double pay) {
 		// TODO Auto-generated method stub
-		System.out.println("Paid "+pay+" using credit card " + this.emailAddress);
+		System.out.println("Paid "+pay+" using PayPal account " + this.emailAddress);
 	}
 
 }

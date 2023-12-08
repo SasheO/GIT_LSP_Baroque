@@ -11,7 +11,7 @@ public class BitconPayment implements PaymentStrategy{
 	@Override
 	public void pay(double pay) {
 		// TODO Auto-generated method stub
-		System.out.println("Paid "+pay+" using credit card " + this.bitcoinAddress);
+		System.out.println("Paid "+pay+" using Bitcoin address " + this.bitcoinAddress);
 	}
 
 }

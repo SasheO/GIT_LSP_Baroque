@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Logger {
-	private static Map<String, Logger> loggerRecords = new HashMap<String, Logger>(); 
+	private static Logger logger; 
 
     private String log;
 
@@ -22,13 +22,15 @@ public class Logger {
 
     public String displayLog() {
         return("Log:\n" + log);
+        
     }
     
     public static Logger getInstance (String logMessage) {
-    	if (!loggerRecords.containsKey(logMessage)) {
-            loggerRecords.put(logMessage, new Logger(logMessage));
-       }
-       return loggerRecords.get(logMessage);
+    	if (logger == null) { 
+    		logger = new Logger();
+    	}
+    	
+    	return logger;
 
    }
 

@@ -1,8 +1,5 @@
 package org.howard.edu.lsp.exam.problem51;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Logger {
 	private static Logger logger; 
 

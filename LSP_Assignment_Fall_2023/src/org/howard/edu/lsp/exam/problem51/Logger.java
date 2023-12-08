@@ -11,10 +11,7 @@ public class Logger {
     private Logger() {
         this.log = "";
     }
-    
-    private Logger(String message) {
-        this.log = "";
-    }
+
 
     public void logMessage(String message) {
         this.log += message + "\n";
@@ -25,7 +22,7 @@ public class Logger {
         
     }
     
-    public static Logger getInstance (String logMessage) {
+    public static Logger loggerInstance () {
     	if (logger == null) { 
     		logger = new Logger();
     	}

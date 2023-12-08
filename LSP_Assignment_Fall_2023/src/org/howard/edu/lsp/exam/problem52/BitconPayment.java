@@ -8,4 +8,10 @@ public class BitconPayment implements PaymentStrategy{
 		this.bitcoinAddress = bitcoinAddress;
 	}
 
+	@Override
+	public void pay(double pay) {
+		// TODO Auto-generated method stub
+		System.out.println("Paid "+pay+" using credit card " + this.bitcoinAddress);
+	}
+
 }

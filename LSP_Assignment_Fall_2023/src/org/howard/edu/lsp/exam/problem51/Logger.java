@@ -22,7 +22,7 @@ public class Logger {
         
     }
     
-    public static Logger getInstance (String logMessage) {
+    public static Logger loggerInstance () {
     	if (logger == null) { 
     		logger = new Logger();
     	}
